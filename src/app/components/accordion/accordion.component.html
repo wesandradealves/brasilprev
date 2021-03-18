@@ -1,0 +1,4 @@
+<div class="accordion-item" (click)="clickEvent()"  [ngClass]="opened ? 'opened' : ''">
+    <h3>{{data.name}} <span class="mana">Mana: {{data.convertedEnergyCost}}</span> <span class="damage">Dano: {{data.damage}}</span> <img src="https://img.icons8.com/color/452/pokeball-2.png" height="20" /></h3>
+    <p *ngIf="opened">{{data.text}}</p>
+</div>

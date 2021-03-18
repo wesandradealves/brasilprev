@@ -1,0 +1,58 @@
+@import '../../styles/mixins.scss';
+
+.toolbar-ico {
+    position: relative;
+    display: block;
+    transform-origin: center center;
+    transition: 500ms ease-in-out all;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(https://store-images.s-microsoft.com/image/apps.22390.13510798882993070.dbdf3b4e-6080-4e82-8d7d-b03da664fc34.b688e177-97d6-4643-95c9-83232213d7d9);
+    &:hover {
+        transform: rotate(180deg);
+    }
+}
+
+.filterForm {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+    padding-right: 35px;
+    p {
+        padding-right: 10px;
+        font-size: .9rem;
+        color: white;
+        margin: 0;
+        display: none;
+        @include for-tablet-portrait-up {
+            display: block;
+        }
+    }
+    .mat-form-field-type-mat-select {
+        width: 80px;
+        font-size: .9rem;
+    }    
+    .pagination {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+    }
+    .search {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        input {
+            width: 100%;
+            background: none;
+            font-size: 2rem;
+            color: white;
+            text-align: center;
+            font-weight: 100;            
+        }        
+    }
+}

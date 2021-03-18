@@ -1,0 +1,17 @@
+<mat-toolbar class="toolbar">
+    <i (click)="goBack()" class="toolbar-ico"></i>
+    <form class="filterForm" [formGroup]="filterForm" novalidate>
+        <span class="search">
+            <input placeholder="Buscar..." name="s" formControlName="s" type="text">
+        </span>
+        <span *ngIf="pages.length && pages.length > 1 && !id" class="pagination">
+            <p>Página: </p>
+            <mat-form-field [floatLabel]="'never'" class="form-control">
+                <mat-label>{{page}}</mat-label>
+                <mat-select name="page" formControlName="page" [(value)]="page">
+                    <mat-option *ngFor="let page of pages" [value]="page">{{page}}</mat-option>
+                </mat-select>
+            </mat-form-field> 
+        </span>
+    </form>
+</mat-toolbar> 

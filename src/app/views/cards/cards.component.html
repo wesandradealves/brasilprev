@@ -1,0 +1,27 @@
+<app-toolbar 
+    (startSpinner)="isLoading = true"   
+    (getData)="onGetData($event)" ></app-toolbar>
+
+<ul class="card-list">
+    <li routerLink="/card/{{item.id}}" class="card-list--item" *ngFor="let item of data; index as i">
+        <h2 class="card-list--item--title">
+            <span class="name">{{item.name}}</span> 
+            <span class="id">#{{item.id}}</span> 
+            <span class="type">{{item.types}}</span>
+        </h2>
+        <div class="card-list--item--inner">
+            <div class="card-list--item--inner--front"></div>
+            <div class="card-list--item--inner--back" [style.backgroundImage]="'url(' + item.images.small + ')'"></div>            
+        </div>
+    </li>
+</ul>
+<!-- *ngIf="data.length;else error" 
+<ng-template #error> 
+    <div class="no-results">
+        <img src="assets/img/no-results.png" alt="Nenhum resultado encontrado">
+        <h3><span>Ops.</span> Nenhum resultado encontrado.</h3>
+    </div>
+</ng-template> -->
+<div *ngIf="isLoading" class="app-spinner">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div>

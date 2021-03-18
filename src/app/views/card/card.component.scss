@@ -1,0 +1,83 @@
+@import '../../styles/mixins.scss';
+
+.single-content {
+    padding-top: 64px;
+    .container {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        max-width: 1024px;
+        margin: 0 auto;
+        overflow: auto;
+        padding: 15px 35px 35px 35px;
+        height: calc(100vh - 64px);
+        @include for-phone-landscape-up {
+            flex-flow: row wrap;
+        }          
+        > * {
+            &.thumbnail {
+                flex: 0 0 auto;
+                width: 240px;
+                height: 339px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                @include for-phone-landscape-up {
+                    width: 30%;
+                    height: auto;
+                    padding: 0 0 45%;
+                    @include for-tablet-landscape-up {
+                        // width: 33.333%;
+                        @include for-desktop-up {
+                            // width: 16.666%;
+                        }  
+                    }
+                }                    
+            }
+            &.info {
+                padding-top: 35px;
+                flex: 0 0 auto;
+                @include for-phone-landscape-up {
+                    padding-left: 35px;
+                    padding-top: 0;
+                    flex: 1;
+                }                   
+                .title {
+                    font-weight: bold;
+                    font-size: 1.2rem;
+                    @include for-phone-landscape-up {
+                        font-size: 2rem;
+                    }                    
+                }
+                .id {
+                    display: inline-block;
+                    padding-left: 5px;
+                    font-size: .8rem;
+                }
+                .type {
+                    display: block;
+                    font-size: 1rem;
+                }
+                .attacks {
+                    h3,
+                    p {
+                        margin: 0
+                    }
+                }
+                .weakness {
+                    margin: 15px auto 0;
+                    p {
+                        font-weight: bold;
+                    }
+                    ul {
+                        li {
+                            display: block;
+                            font-weight: 300;
+                        }
+                    }
+                }
+            }
+            flex: 1;
+        }
+    }
+}

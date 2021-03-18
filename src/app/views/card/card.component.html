@@ -1,0 +1,30 @@
+<app-toolbar [id]="id"></app-toolbar>
+<div class="single-content">
+    <!-- <p>card works! #{{id}}</p> -->
+    <div class="container" *ngIf="card">
+        <div *ngIf="card.images" class="thumbnail" [style.backgroundImage]="'url(' + card.images.large + ')'"></div>
+        <div class="info">
+            <h2 class="title">
+                <span class="name">{{card.name}}</span> 
+                <span class="id">#{{card.id}}</span> 
+                <span class="type">{{card.types}}</span>                
+            </h2>
+            <ul class="attacks">
+                <li *ngFor="let attack of card.attacks">
+                    <app-accordion [data]="attack"></app-accordion>
+                </li>
+            </ul>
+            <div class="weakness">
+                <p>Fraquezas:</p>
+                <ul>
+                    <li *ngFor="let weakness of card.weaknesses">
+                        {{weakness.type}} {{weakness.value}}
+                    </li>
+                </ul>                  
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="isLoading" class="app-spinner">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div>
